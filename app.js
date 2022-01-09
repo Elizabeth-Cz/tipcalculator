@@ -1,19 +1,19 @@
-let calc = document.getElementById("calc");
+const calc = document.getElementById("calc");
+const amount = document.getElementById("amount");
+const tip = document.getElementById("tip");
+const ppl = document.getElementById("ppl");
+const result = document.getElementById("result");
+const reset = document.getElementById("reset");
 
-calc.addEventListener("click", function () {
-  let amount = document.getElementById("amount").value;
-  let tip = document.getElementById("tip").value;
-  tip = tip / 100 + 1;
-  let ppl = document.getElementById("ppl").value;
-  let result = document.getElementById("result");
-  result.innerHTML = ((amount * tip) / (ppl || 1)).toFixed(2);
+calc.addEventListener("click", () => {
+  result.innerHTML = (
+    (amount.value * (tip.value / 100 + 1)) /
+    (ppl.value || 1)
+  ).toFixed(2);
 });
 
-let reset = document.getElementById("reset");
-
-reset.addEventListener("click", function () {
-  result.innerHTML = "$";
-  document.getElementById("amount").value = "";
-  document.getElementById("tip").value = "";
-  document.getElementById("ppl").value = "";
+reset.addEventListener("click", () => {
+  amount.value = "";
+  tip.value = "";
+  ppl.value = "";
 });
